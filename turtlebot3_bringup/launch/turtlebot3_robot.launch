@@ -13,4 +13,6 @@
   </include>
 
   <node pkg="turtlebot3_bringup" type="turtlebot3_diagnostics" name="turtlebot3_diagnostics" output="screen"/>
+  <node pkg="turtlebot3_bringup" type="tf_nodes.py" name="lidar_tf_broadcaster" respawn="false" output="screen />
+
 </launch>
