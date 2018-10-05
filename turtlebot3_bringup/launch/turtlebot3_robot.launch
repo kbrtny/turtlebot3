@@ -11,6 +11,8 @@
     <arg name="model" value="$(arg model)"/>
     <arg name="set_frame_id" value="$(arg set_lidar_frame_id)"/>
   </include>
+  <include file="$(find raspicam_node)/launch/camerav2_410x308_30fps.launch"/>
+  <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch"/>
 
   <node pkg="turtlebot3_bringup" type="turtlebot3_diagnostics" name="turtlebot3_diagnostics" output="screen"/>
 </launch>
