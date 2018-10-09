@@ -2,6 +2,8 @@
   <arg name="model" default="$(env TURTLEBOT3_MODEL)" doc="model type [burger, waffle, waffle_pi, romi]"/>
   <arg name="multi_robot_name" default=""/>
 
+
+
   <group if="$(eval model == 'romi')">
    <node pkg="ros_arduino_python" name="turtlebot3_core" type="arduino_node.py" output="screen">
     <rosparam file="$(find ros_arduino_python)/config/my_arduino_params.yaml" command="load" />
