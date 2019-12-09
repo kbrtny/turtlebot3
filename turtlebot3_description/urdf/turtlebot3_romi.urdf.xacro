@@ -1,14 +1,14 @@
 <?xml version="1.0" ?>
-<robot name="turtlebot3_burger" xmlns:xacro="http://ros.org/wiki/xacro">
+<robot name="turtlebot3_romi" xmlns:xacro="http://ros.org/wiki/xacro">
   <xacro:include filename="$(find turtlebot3_description)/urdf/common_properties.xacro"/>
-  <xacro:include filename="$(find turtlebot3_description)/urdf/turtlebot3_burger.gazebo.xacro"/>
+  <xacro:include filename="$(find turtlebot3_description)/urdf/turtlebot3_romi.gazebo.xacro"/>
 
   <link name="base_footprint"/>
 
   <joint name="base_joint" type="fixed">
     <parent link="base_footprint"/>
     <child link="base_link"/>
-    <origin xyz="0.0 0.0 0.010" rpy="0 0 0"/>
+    <origin xyz="0.0 0.0 0.035" rpy="0 0 0"/>
   </joint>
 
   <link name="base_link">
@@ -39,7 +39,7 @@
   <joint name="wheel_left_joint" type="continuous">
     <parent link="base_link"/>
     <child link="wheel_left_link"/>
-    <origin xyz="0.0 0.08 0.023" rpy="-1.57 0 0"/>
+    <origin xyz="0.0 0.0074 0.0035" rpy="-1.57 0 0"/>
     <axis xyz="0 0 1"/>
   </joint>
 
@@ -55,7 +55,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <cylinder length="0.018" radius="0.033"/>
+        <cylinder length="0.018" radius="0.035"/>
       </geometry>
     </collision>
 
@@ -71,7 +71,7 @@
   <joint name="wheel_right_joint" type="continuous">
     <parent link="base_link"/>
     <child link="wheel_right_link"/>
-    <origin xyz="0.0 -0.080 0.023" rpy="-1.57 0 0"/>
+    <origin xyz="0.0 -0.074 0.035" rpy="-1.57 0 0"/>
     <axis xyz="0 0 1"/>
   </joint>
 
@@ -87,7 +87,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <cylinder length="0.018" radius="0.033"/>
+        <cylinder length="0.018" radius="0.035"/>
       </geometry>
     </collision>
 
@@ -126,7 +126,7 @@
   <joint name="imu_joint" type="fixed">
     <parent link="base_link"/>
     <child link="imu_link"/>
-    <origin xyz="-0.032 0 0.068" rpy="0 0 0"/>
+    <origin xyz="-0.00889 -0.014986 0.001875" rpy="0 0 0"/>
   </joint>
 
   <link name="imu_link"/>
@@ -134,7 +134,7 @@
   <joint name="scan_joint" type="fixed">
     <parent link="base_link"/>
     <child link="base_scan"/>
-    <origin xyz="-0.032 0 0.172" rpy="0 0 0"/>
+    <origin xyz="0 0 0.0806" rpy="0 0 0"/>
   </joint>
 
   <link name="base_scan">
@@ -161,5 +161,15 @@
                izz="0.001" />
     </inertial>
   </link>
+
+  <joint name="raspicam_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="raspicam"/>
+    <origin xyz="0.08186 0.00 0.029" rpy="0 0.1745 0"/>
+  </joint>
+
+  <link name="raspicam"/>
+
+
 
 </robot>
